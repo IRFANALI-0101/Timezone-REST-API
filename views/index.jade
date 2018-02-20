@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	- var places = TZ;
+	div.container
+		h1.page-header Select any Timezone
+		//- p !{userlist}
+		div.col-sm-3
+			select(name = "TimezoneSelect").form-control
+				- for (var i = 0; i < places.length; i++) {
+					option(value="#{places[i]}") #{places[i]}
+				- }
+		div.col-sm-3
+			button(type="button" class="btn btn-primary" id="restCallBTN") GO
+		div.col-xs-3 
+			label Result
+			input(class="form-control" id="res" type="text")
